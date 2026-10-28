@@ -1,0 +1,22 @@
+// src/routes/user.routes.ts
+import { Router } from "express";
+import {
+  createUser,
+  deleteUser,
+  getAllUsers,
+  getUserById,
+  getUserPosts,
+  updateUser,
+} from "../controllers/userController";
+
+const router = Router();
+
+// Route statis HARUS di atas route dinamis (modul bag. 5)
+router.post("/", createUser);
+router.get("/", getAllUsers);
+router.get("/:id/posts", getUserPosts);
+router.get("/:id", getUserById);
+router.patch("/:id", updateUser);
+router.delete("/:id", deleteUser);
+
+export default router;
